@@ -3,8 +3,10 @@ module Api
     class RewardsController < ApplicationController
       def index
         rewards = Reward.all.order(:id)
-        render json: rewards.as_json(only: %i[id name description points_cost],
-                                     methods: [:in_stock?])
+        render json: rewards.map { |r|
+          r.as_json(only: %i[id name description points_cost])
+           .merge(in_stock: r.in_stock?)
+        }
       end
     end
   end

@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {useState} from "react";
+import {BrowserRouter, Routes, Route, NavLink} from "react-router-dom";
+import BalanceHeader from "./components/BalanceHeader";
+import RewardsList from "./components/RewardsList";
+import History from "./components/History";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+    const [refreshToken, setRefreshToken] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    function bump() {
+        setRefreshToken(x => x + 1);
+    }
+
+    return (
+        <BrowserRouter>
+            <BalanceHeader refreshToken={refreshToken}/>
+            <nav style={styles.nav}>
+                <NavLink to="/" end>Rewards</NavLink> |{" "}
+                <NavLink to="/history">History</NavLink>
+            </nav>
+            <main style={{padding: "1rem"}}>
+                <Routes>
+                    <Route index element={<RewardsList onRedeem={bump}/>}/>
+                    <Route path="history" element={<History refreshToken={refreshToken}/>}/>
+                </Routes>
+            </main>
+        </BrowserRouter>
+    );
 }
 
-export default App
+const styles = {nav: {padding: "0.5rem 1rem", background: "#f0f0f0"}};
