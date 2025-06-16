@@ -6,7 +6,7 @@ RUN apt-get update -qq && \
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler -v 2.5.6 && bundle install
+RUN gem install bundler -v 2.6.9 && bundle install
 
 COPY . .
 

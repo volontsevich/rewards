@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class RedemptionsController < ApplicationController
@@ -28,10 +30,10 @@ module Api
 
       def present(redemption)
         {
-          id:           redemption.id,
-          reward:       redemption.reward.name,
-          points_cost:  redemption.points_cost,
-          redeemed_at:  redemption.created_at.iso8601
+          id: redemption.id,
+          reward: redemption.reward.name,
+          points_cost: redemption.points_cost,
+          redeemed_at: redemption.created_at.iso8601
         }
       end
     end
