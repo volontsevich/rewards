@@ -86,9 +86,6 @@ GEM
     connection_pool (2.5.3)
     crass (1.0.6)
     date (3.4.1)
-    debug (1.10.0)
-      irb (~> 1.10)
-      reline (>= 0.3.8)
     diff-lcs (1.6.2)
     dotenv (3.1.8)
     drb (2.2.3)
@@ -327,14 +324,13 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   brakeman
-  debug
   kamal
   puma (>= 5.0)
   rack-cors
   rails (~> 8.0.2)
   rspec-rails (~> 6.0)
-  rubocop
-  rubocop-rails
+  rubocop (~> 1.63)
+  rubocop-rails (~> 2.32)
   solid_cable
   solid_cache
   solid_queue
