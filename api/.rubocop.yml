@@ -5,3 +5,8 @@ AllCops:
   TargetRubyVersion: 3.4
   Exclude:
     - 'db/schema.rb'
+    - 'db/queue_schema.rb'
+    - 'bin/bundle'
+  SuggestExtensions: false
+Documentation:
+  Enabled: false

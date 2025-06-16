@@ -6,7 +6,7 @@ module Api
       def index
         rewards = Reward.all.order(:id)
         render json: rewards.map { |r|
-          r.as_json(only: %i[id name description points_cost])
+          r.as_json(only: %i[id name description points_cost stock])
            .merge(in_stock: r.in_stock?)
         }
       end

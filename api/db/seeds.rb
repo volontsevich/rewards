@@ -6,6 +6,6 @@ end
 
 Reward.create!([
                  { name: 'Coffee Mug', description: 'Ceramic, 11 oz', points_cost: 500, stock: 100 },
-                 { name: 'T-Shirt', description: 'Size M', points_cost: 1500, stock: 50 },
-                 { name: 'Sticker Pack', description: '5 pcs', points_cost: 200, stock: nil }
+                 { name: 'T-Shirt', description: 'Size M', points_cost: 1500, stock: 5 },
+                 { name: 'Sticker Pack', description: 'Sticky and gluey', points_cost: 200, stock: 2 }
                ])
