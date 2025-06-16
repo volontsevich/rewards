@@ -18,7 +18,7 @@ A tiny full-stack app that lets a single demo user
 
 ```bash
 git clone https://github.com/volontsevich/rewards.git
-cd rewards-app
+cd rewards
 docker compose up --build
 ````
 
@@ -44,7 +44,7 @@ Hot-reload is enabled; edit code on the host, containers auto-refresh.
 ```bash
 cd api
 bundle install
-bin/rails db:prepare      # 
+bin/rails db:prepare 
 bin/rails server          # http://localhost:3000
 ```
 

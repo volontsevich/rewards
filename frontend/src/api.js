@@ -27,14 +27,11 @@ export async function getHistory() {
 }
 
 export async function earn(points) {
-  const res = await fetch(
-      `${BASE}/users/${USER}/earn`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ points })
-      }
-  );
+  const res = await fetch(`${BASE}/users/${USER}/earn`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ points }),
+  });
   if (!res.ok) throw await res.json();
   return res.json();
 }
