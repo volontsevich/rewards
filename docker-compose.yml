@@ -12,7 +12,7 @@ services:
 
   frontend:
     build: ./frontend
-    command: npm run dev -- --host
+    command: bash -c "npm install && npm run dev -- --host"
     volumes:
       - ./frontend:/app
     ports:

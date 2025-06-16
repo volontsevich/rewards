@@ -19,6 +19,7 @@ A tiny full-stack app that lets a single demo user
 ```bash
 git clone https://github.com/volontsevich/rewards.git
 cd rewards
+cp frontend/.env.sample frontend/.env
 docker compose up --build
 ````
 
