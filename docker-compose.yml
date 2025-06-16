@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  api:
+    build: ./api
+    command: bash -c "bundle exec rails db:prepare && bin/rails server -b 0.0.0.0"
+    volumes:
+      - ./api:/app
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_URL=sqlite3:/app/db/development.sqlite3
+
+  frontend:
+    build: ./frontend
+    command: npm run dev -- --host
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3000
+    depends_on:
+      - api
